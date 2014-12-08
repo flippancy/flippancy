@@ -1,0 +1,143 @@
+<extend name="./Application/Admin/View/default/Public/admin.html"/>
+<block name="css">
+	<link href="__ACSS__/jquery.fancybox.css" rel="stylesheet" />
+	<link href="__ACSS__/jquery.fileupload-ui.css" rel="stylesheet" />
+</block>
+
+<block name="content">
+	<table class="table table-striped">
+	    <caption>文件管理</caption>
+		<thead>
+        	<tr>
+				<th>文件名称</th>
+				<th>文件大小</th>
+				<th>文件路径</th>
+				<th>创建时间</th>
+				<th>作者</th>
+				<th>作品说明</th>
+				<th>操作</th>
+            </tr>
+		</thead>
+		<volist name="list" id="vo">
+		<tbody class="file">
+			<tr class="template-domeload dade in">
+				<td class="name">{$vo.filename}</td>
+				<td class="size">{$vo.size}</td>
+				<td class="path">{$vo.path}</td>
+				<td class="time">{$vo.time}</td>
+				<td class="author">{$vo.author}</td>
+				<td class="instruction">{$vo.instruction}</td>
+				<td class="delete">	
+					<input type="button" value="download"  class="btn yellow cancel" onclick="location.href='__URL__/download?filename={$vo.filename}'">
+					<input type="button" value="Delete"  class="btn red delete" onclick="location.href='__URL__/delete?filename={$vo.filename}'">
+				</td>
+			</tr>
+		</tbody>
+		</volist>
+
+	</table>
+
+	<form action="__URL__/upload" enctype="multipart/form-data" method="post">
+	<input type="text" name="name" placeholder="文件名称" required>
+	<span class="btn green fileinput-button">
+	<i class="icon-plus icon-white"></i>
+	<span>Add files...</span>
+	<input type="file" name="rar" multiple>
+	</span><br>
+
+	<div class="control-group">
+	<label class="control-label visible-ie8 visible-ie9">author</label>
+		<div class="input-icon left">
+			<i class="icon-lock"></i>
+			<input class="m-wrap placeholder-no-fix" type="txt" placeholder="Author" name="author" required>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<label class="control-label visible-ie8 visible-ie9">instruction</label>
+		<div class="input-icon left">
+			<i class="icon-lock"></i>
+			<input class="m-wrap placeholder-no-fix" type="txt" placeholder="Instruction" name="instruction" required>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<label class="control-label visible-ie8 visible-ie9">Password</label>
+		<div class="input-icon left">
+			<i class="icon-lock"></i>
+			<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
+		</div>
+	</div>
+
+    <button type="submit" class="btn blue start">
+	<i class="icon-upload icon-white"></i>
+	<span>Start upload</span>
+	</button>
+	</form>
+</block>
+<block name="jq">
+	<script src="__AJS__/form-fileupload.js"></script>
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+	<script src="__AJS__/jquery.fancybox.pack.js"></script>
+
+	<!-- BEGIN:File Upload Plugin JS files-->
+
+	<script src="__AJS__/jquery.ui.widget.js"></script>
+
+	<!-- The Templates plugin is included to render the upload/download listings -->
+
+	<script src="__AJS__/tmpl.min.js"></script>
+
+	<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+
+	<script src="__AJS__/load-image.min.js"></script>
+
+	<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+
+	<script src="__AJS__/canvas-to-blob.min.js"></script>
+
+	<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+
+	<script src="__AJS__/jquery.iframe-transport.js"></script>
+
+	<!-- The basic File Upload plugin -->
+
+	<script src="__AJS__/jquery.fileupload.js"></script>
+
+	<!-- The File Upload file processing plugin -->
+
+	<script src="__AJS__/jquery.fileupload-fp.js"></script>
+
+	<!-- The File Upload user interface plugin -->
+
+	<script src="__AJS__/jquery.fileupload-ui.js"></script>
+
+	<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+
+	<!--[if gte IE 8]><script src="media/js/jquery.xdr-transport.js"></script><![endif]-->
+
+	<!-- END:File Upload Plugin JS files-->
+
+	<!-- END PAGE LEVEL PLUGINS -->
+
+	<script src="__AJS__/app.js"></script>
+
+	<script src="__AJS__/form-fileupload.js"></script>
+
+	<script>
+
+		jQuery(document).ready(function() {
+
+		// initiate layout and plugins
+
+		App.init();
+
+		FormFileUpload.init();
+
+		});
+
+	</script>
+
+	<!-- END JAVASCRIPTS -->
+</block>
