@@ -1,12 +1,16 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class FileController extends Controller {
+class FileController extends CommonController {
     public function index(){
     	$data = M('File')->select();
-    	$this->show('asdsadsa');
     	$this->assign('list',$data);
     	$this->display();
+    }
+
+    public function select(){
+      $name = I('post');
+      var_dump($name);
     }
    	public function upload(){
    	if(IS_POST){ 
@@ -42,26 +46,41 @@ class FileController extends Controller {
     		}
     		}   
    		}
+   		$this->redirect('File/index');
    	}
    	}
    	public function download(){
    		$filename = $_GET['filename'];
-   		var_dump($filename);
-   		$this->show('download');
+   		$password = md5(I('post.password'));
+   		$map['filename'] = $filename;
+   		$filepath = M('File')->where($map)->field('pass,path,author')->select();
+   		if($filepath['0']['pass'] == $password){
+   			$path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filepath['0']['author'].'.zip';
+        if(!file_exists($path)){
+          $path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filepath['0']['author'].'.rar';
+        }
+   			redirect($path);
+   		}else{
+   			$this->error('文件密码错误');
+   		}
    	}
    	public function delete(){
    		$filename = $_GET['filename'];
    		$map['filename'] = $filename;
-   		$filepath = M('File')->where($map)->field('path')->select();
-   		var_dump($filepath);
+   		$filepath = M('File')->where($map)->field('path,author')->select();
+   		$name1 = './Uploads/'.$filepath['0']['path'].$filename.'.zip';
+      $name2 = './Uploads/'.$filepath['0']['path'].$filename.'.rar';
+      var_dump($name);
    		if(M('File')->delete($filename)){
-   			if(deldir($filepath)){
+   			if(unlink($name1) || unlink($name2)){
+            	deldir('./Uploads/'.$filepath['0']['path']);
+            	deldir('./Uploads/'.$filepath['0']['author']);
             	$this->success('删除成功');
             }
-            $this->error('删除失败mmmmm');
+            else $this->error('删除失败1');
         } else{
-            $this->error('删除失败');
+            $this->error('删除失败2');
         }
-        // $this->redirect('File/index');
+        $this->redirect('File/index');
    	}
 }

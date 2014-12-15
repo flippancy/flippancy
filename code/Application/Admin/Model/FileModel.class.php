@@ -2,14 +2,6 @@
 namespace Admin\Model;
 use Think\Model;
 class FileModel extends Model {
-	protected $_validate = array(
-		array('loginname','','账户名已经存在',0,'unique',1),
-    );
-    
-    protected $_auto = array (
-		array('pass','md5',3,'function'),
-	);
-
     public function index(){
     	$this->show("123");
     }

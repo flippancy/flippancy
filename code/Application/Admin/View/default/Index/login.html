@@ -64,6 +64,7 @@
 
 	</div>
 
+
 	<!-- END LOGO -->
 
 	<!-- BEGIN LOGIN -->
@@ -72,7 +73,7 @@
 
 		<!-- BEGIN LOGIN FORM 登录-->
 
-		<form class="form-vertical login-form" method="get" action="__URL__/login">
+		<form class="form-vertical login-form" name="dologin" id="form" method="POST" action="{:U('Index/dologin')}">
 
 			<h3 class="form-title">Login to your account</h3>
 
@@ -130,7 +131,8 @@
 
 			</div>
 
-			<div class="forget-password">
+
+			<!--<div class="forget-password">
 
 				<h4>Forgot your password ?</h4>
 
@@ -156,13 +158,13 @@
 
 			</div>
 
-		</form>
+		</form>-->
 
 		<!-- END LOGIN FORM -->        
 
 		<!-- BEGIN FORGOT PASSWORD FORM  忘记-->
 
-		<form class="form-vertical forget-form" action="index.html">
+		<!--<form class="form-vertical forget-form" action="#">
 
 			<h3 class="">Forget Password ?</h3>
 
@@ -200,11 +202,11 @@
 
 			</div>
 
-		</form>
+		</form>-->
 
 		<!-- END FORGOT PASSWORD FORM  注册-->     
 
-		<form class="form-vertical register-form" action="index.html">
+		<!--<form class="form-vertical register-form" action="#">
 
 			<h3 class="">Sign Up</h3>
 
@@ -264,11 +266,11 @@
 
 			</div>
 
-			<div class="control-group">
+			<<div class="control-group">-->
 
 				<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 
-				<label class="control-label visible-ie8 visible-ie9">Email</label>
+				<!--<label class="control-label visible-ie8 visible-ie9">Email</label>
 
 				<div class="controls">
 
@@ -316,7 +318,7 @@
 
 			</div>
 
-		</form>
+		</form>-->
 
 		<!-- END REGISTRATION FORM -->
 
@@ -382,7 +384,7 @@
 
 	<!-- END PAGE LEVEL SCRIPTS --> 
 
-	<script>
+	<!--<script>
 
 		jQuery(document).ready(function() {     
 
@@ -392,7 +394,7 @@
 
 		});
 
-	</script>
+	</script>-->
 
 	<!-- END JAVASCRIPTS -->
 

@@ -1,0 +1,110 @@
+<extend name="./Application/Admin/View/default/Public/admin.html"/>
+<block name="css">
+    <link href="__ACSS__/jquery.fancybox.css" rel="stylesheet" />
+    <link href="__ACSS__/jquery.fileupload-ui.css" rel="stylesheet" />
+</block>
+
+
+<block name="content">
+    <table class="table table-striped">
+        <br />
+        <p style="font-size:30px;text-align:center">修改人物介绍</p>
+        <form name="form" method="POST" action="__URL__/handle" enctype="multipart/form-data">
+
+            <div>
+                <p>人物头像：</p><img src="{$person['img_path']}"/>
+            </div>
+    <div>
+        <p>姓名：</p><input type="text" name="name" value="{$person['name']}" placeholder="姓名"><br />
+    </div>
+
+    <div>
+        <p>英文名</p><input type="text" name="english_name" value="{$person['english_name']}" placeholder="英文名"><br />
+    </div>
+
+    <div>
+        <p>年龄：</p><input type="text" name="age" value="{$person['age']}" placeholder="年龄"><br />
+    </div>
+
+    <div>
+        <p>性别：</p><input type="text" name="sex" value="{$person['sex']}" placeholder="性别"><br />
+    </div>
+
+    <div>
+        <p>角色：</p><input type="text" name="role" value="{$person['role']}" placeholder="角色"><br />
+    </div>
+
+    <div>
+        <p>学院：</p><input type="text" name="college" value="{$person['college']}" placeholder="学院"><br />
+    </div>
+
+    <div>
+        <p>人物简介：</p><script id="editor" name="content" type="text/plain" style="width:900px;height:300px;">{$person['content']}</script><br />
+    </div>
+
+    <button type="submit" class="btn blue start">
+    <i class="icon-upload icon-white"></i>
+    <span>Start Upload</span>
+    </button>
+
+</form>
+
+</block>
+<block name="jq">
+    <script src="__AJS__/form-fileupload.js"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+    <script src="__AJS__/jquery.fancybox.pack.js"></script>
+
+    <!-- BEGIN:File Upload Plugin JS files-->
+
+    <script src="__AJS__/jquery.ui.widget.js"></script>
+
+    <!-- The Templates plugin is included to render the upload/download listings -->
+
+    <script src="__AJS__/tmpl.min.js"></script>
+
+    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+
+    <script src="__AJS__/load-image.min.js"></script>
+
+    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+
+    <script src="__AJS__/canvas-to-blob.min.js"></script>
+
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+
+    <script src="__AJS__/jquery.iframe-transport.js"></script>
+
+    <!-- The basic File Upload plugin -->
+
+    <script src="__AJS__/jquery.fileupload.js"></script>
+
+    <!-- The File Upload file processing plugin -->
+
+    <script src="__AJS__/jquery.fileupload-fp.js"></script>
+
+    <!-- The File Upload user interface plugin -->
+
+    <script src="__AJS__/jquery.fileupload-ui.js"></script>
+
+    <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+
+    <!--[if gte IE 8]><script src="media/js/jquery.xdr-transport.js"></script><![endif]-->
+
+    <!-- END:File Upload Plugin JS files-->
+
+    <!-- END PAGE LEVEL PLUGINS -->
+
+
+    <script>
+    $(function () {
+        //实例化编辑器
+        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+        var ue = UE.getEditor('editor');
+        var s = ue.getPlainTxt();
+    });
+    </script>
+
+    <!-- END JAVASCRIPTS -->
+</block>

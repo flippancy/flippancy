@@ -7,23 +7,39 @@ class IndexController extends Controller {
     }
 
     public function login(){
+        $this->display();
+    }
+
+    public function dologin(){
         if(IS_POST) {
             $User = M("User");
-            $map['loginname'] = I("post.username");
-            $map['password'] = md5(I("post.password"));
-            var_dump($User);
-            if($User->where($map)->select()) {
-                $_SESSION[C("USER_AUTH_KEY")] = $map['loginname'];
-                session('user_name',$map['loginname']);
-                $data['lastlogin'] = date('Y-m-d H:i:s');
-                $data['ip'] = get_client_ip();
-                $User->where($map)->data($data)->save();
-                $this->redirect("File/index");
-            } else {
-                $this->error("登录失败!");
+            $loginname=$_POST['username'];
+            $password=$_POST['password'];
+            if(!empty($loginname) && !empty($password)){
+                $where['loginname'] = $loginname;
+                $result = $User->where($where)->find();
+                if($result != NULL && $result != false){
+                    if(md5($result['salt'] . $password) == $result['password']){
+                        $_SESSION[C("USER_AUTH_KEY")] = $result['loginname'];
+                        session('user_name',$result['loginname']);
+                        $data['lastlogin'] = date('Y-m-d H:i:s');
+                        $data['ip'] = get_client_ip();
+                        $User->where($result)->data($data)->save();
+                        $this->redirect('File/index');
+                        // $this->success("登陆成功！",U('File/index'));
+                    }
+                    else{
+                        $this->error("密码错误，请检查！",'Index/login');
+                    }
+                }
+                else{
+                    $this->error("没有找到该用户，请检查你的用户名！",'Index/login');
+                }
+            }
+            else{
+                $this->error("没有找到该用户，请检查你的用户名！",'Index/login');
             }
         }
-        $this->display();
     }
 
     public function logout(){

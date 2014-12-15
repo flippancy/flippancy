@@ -2,6 +2,11 @@
 <block name="css">
 	<link href="__ACSS__/jquery.fancybox.css" rel="stylesheet" />
 	<link href="__ACSS__/jquery.fileupload-ui.css" rel="stylesheet" />
+
+	<script src="__AJS__/md5.js"></script>
+	<script type="text/javascript">
+
+	</script>
 </block>
 
 <block name="content">
@@ -27,9 +32,29 @@
 				<td class="time">{$vo.time}</td>
 				<td class="author">{$vo.author}</td>
 				<td class="instruction">{$vo.instruction}</td>
-				<td class="delete">	
-					<input type="button" value="download"  class="btn yellow cancel" onclick="location.href='__URL__/download?filename={$vo.filename}'">
-					<input type="button" value="Delete"  class="btn red delete" onclick="location.href='__URL__/delete?filename={$vo.filename}'">
+				<td class="delete">
+<!-- 					<form  action="__URL__/download?filename={$vo.filename}" method="post">
+							<label class="control-label visible-ie8 visible-ie9">Password</label>
+							<div class="input-icon left">
+								<i class="icon-lock"></i>
+								<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
+							</div>
+					<input type="submit" value="download"  class="btn yellow cancel" >
+
+					<a class="btn red delete" onclick="location.href='__URL__/delete?filename={$vo.filename}'">Delete</a>
+					<a class="btn red delete" onclick="location.href=''">update</a>
+					</form> -->
+					<form  action="__URL__/select?filename={$vo.filename}" method="post">
+							<label class="control-label visible-ie8 visible-ie9">Password</label>
+							<div class="input-icon left">
+								<i class="icon-lock"></i>
+								<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
+							</div>
+					<input type="submit" value="download"  class="btn yellow cancel" >
+
+					<a class="btn red delete" onclick="location.href='__URL__/delete?filename={$vo.filename}'">Delete</a>
+					<a class="btn red delete" onclick="location.href=''">update</a>
+					</form>
 				</td>
 			</tr>
 		</tbody>
