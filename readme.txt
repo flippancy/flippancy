@@ -1,4 +1,25 @@
-Git is a distributed version control system.
-Git is free software distributed under the GPL.
-Git has a mutable index called stage.
-Git tracks changes.
+移动联盟官网
+
+一.目前完成业务：
+项目文件操作
+人物上传
+新闻整理
+
+二.需要添加业务
+1.前台
+	首页目录一图片稍作修改
+	our team：添加in按钮使用js弹出窗口显示人物信息
+	new：readme按钮的对齐，寻找新的新闻模板页面。
+	join us：信息发邮件给绑定邮箱，数据库保存基本信息
+	logo设计
+2.后台
+	图片操作没写
+	新闻和人物的编辑器不会提取信息
+	邮箱绑定
+	角色管理
+	新闻和人物的更新没有完善，以为百度编辑器获取输入信息的问题
+
+三.技术要求和细节决策
+百度编辑器不会获取信息
+
+角色如何分
