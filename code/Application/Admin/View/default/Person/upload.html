@@ -6,14 +6,18 @@
 
 
 <block name="content">
-    <table class="table table-striped">
-        <br />
         <p style="font-size:30px;text-align:center">修改人物介绍</p>
         <form name="form" method="POST" action="__URL__/handle" enctype="multipart/form-data">
 
             <div>
-                <p>人物头像：</p><img src="{$person['img_path']}"/>
-            </div>
+                <p>人物头像：</p>
+                <img width="100" height="100" src="{$person['img_path']}"/><br>
+    			<span class="btn green fileinput-button">
+  				<i class="icon-plus icon-white"></i>
+    			<span>头像修改</span>
+    			<input type="file" name="tx" multiple>
+    			</span>
+            </div><br><br>
     <div>
         <p>姓名：</p><input type="text" name="name" value="{$person['name']}" placeholder="姓名"><br />
     </div>
@@ -39,7 +43,8 @@
     </div>
 
     <div>
-        <p>人物简介：</p><script id="editor" name="content" type="text/plain" style="width:900px;height:300px;">{$person['content']}</script><br />
+       <p>人物简介：</p><textarea rows="5" cols="20" style="width:232px" name="content"  placeholder="{$person['content']}" maxlength="100"></textarea>
+<!--          <script id="editor" name="content" type="text/plain" style="width:900px;height:300px;">{$person['content']}</script><br /> -->
     </div>
 
     <button type="submit" class="btn blue start">

@@ -70,7 +70,6 @@ class FileController extends CommonController {
    		$filepath = M('File')->where($map)->field('path,author')->select();
    		$name1 = './Uploads/'.$filepath['0']['path'].$filename.'.zip';
       $name2 = './Uploads/'.$filepath['0']['path'].$filename.'.rar';
-      var_dump($name);
    		if(M('File')->delete($filename)){
    			if(unlink($name1) || unlink($name2)){
             	deldir('./Uploads/'.$filepath['0']['path']);

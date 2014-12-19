@@ -21,13 +21,8 @@
 	<!-- END GLOBAL MANDATORY STYLES -->
 	<!-- BEGIN PAGE LEVEL STYLES --> 
 
-	<link href="/ydlm/Public/Admin/css/jquery.fancybox.css" rel="stylesheet" />
-	<link href="/ydlm/Public/Admin/css/jquery.fileupload-ui.css" rel="stylesheet" />
-
-	<script src="/ydlm/Public/Admin/js/md5.js"></script>
-	<script type="text/javascript">
-
-	</script>
+    <link href="/ydlm/Public/Admin/css/jquery.fancybox.css" rel="stylesheet" />
+    <link href="/ydlm/Public/Admin/css/jquery.fileupload-ui.css" rel="stylesheet" />
 
 	<!-- END PAGE LEVEL STYLES -->
 	<link rel="shortcut icon" href="/ydlm/Public/Admin/image/favicon.ico" />
@@ -584,95 +579,35 @@
 			<!-- BEGIN PAGE CONTAINER-->
 			<div>
 				
-	<table class="table table-striped">
-	    <caption>文件管理</caption>
-		<thead>
-        	<tr>
-				<th>文件名称</th>
-				<th>文件大小</th>
-				<th>文件路径</th>
-				<th>创建时间</th>
-				<th>作者</th>
-				<th>作品说明</th>
-				<th>操作</th>
-            </tr>
-		</thead>
-		<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tbody class="file">
-			<tr class="template-domeload dade in">
-				<td class="name"><?php echo ($vo["filename"]); ?></td>
-				<td class="size"><?php echo ($vo["size"]); ?></td>
-				<td class="path"><?php echo ($vo["path"]); ?></td>
-				<td class="time"><?php echo ($vo["time"]); ?></td>
-				<td class="author"><?php echo ($vo["author"]); ?></td>
-				<td class="instruction"><?php echo ($vo["instruction"]); ?></td>
-				<td class="delete">
-<!-- 					<form  action="/ydlm/admin.php/File/download?filename=<?php echo ($vo["filename"]); ?>" method="post">
-							<label class="control-label visible-ie8 visible-ie9">Password</label>
-							<div class="input-icon left">
-								<i class="icon-lock"></i>
-								<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
-							</div>
-					<input type="submit" value="download"  class="btn yellow cancel" >
+    <table class="table table-striped">
+        <br />
+        <p style="font-size:30px;text-align:center">新闻详情修改</p>
+        <form name="form" method="POST" action="/ydlm/admin.php/News/handle" enctype="multipart/form-data">
 
-					<a class="btn red delete" onclick="location.href='/ydlm/admin.php/File/delete?filename=<?php echo ($vo["filename"]); ?>'">Delete</a>
-					<a class="btn red delete" onclick="location.href=''">update</a>
-					</form> -->
-					<form  action="/ydlm/admin.php/File/select?filename=<?php echo ($vo["filename"]); ?>" method="post">
-							<label class="control-label visible-ie8 visible-ie9">Password</label>
-							<div class="input-icon left">
-								<i class="icon-lock"></i>
-								<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
-							</div>
-					<input type="submit" value="download"  class="btn yellow cancel" >
+    <div>
+        <p>新闻标题：</p><input type="text" name="title" value="<?php echo ($news['title']); ?>" placeholder="新闻标题"><br />
+    </div>
 
-					<a class="btn red delete" onclick="location.href='/ydlm/admin.php/File/delete?filename=<?php echo ($vo["filename"]); ?>'">Delete</a>
-					<a class="btn red delete" onclick="location.href=''">update</a>
-					</form>
-				</td>
-			</tr>
-		</tbody><?php endforeach; endif; else: echo "" ;endif; ?>
+    <div>
+        <p>新闻日期：</p><input type="text" name="date" value="<?php echo ($news['date']); ?>" placeholder="新闻日期"><br />
+    </div>
 
-	</table>
+    <div>
+        <p>新闻文字简介(限制大小为100文字)：</p><textarea rows="5" cols="10" name="content"  placeholder="新闻简介" maxlength="100"><?php echo ($news['content']); ?></textarea><br />
+    </div>
 
-	<form action="/ydlm/admin.php/File/upload" enctype="multipart/form-data" method="post">
-	<div class="control-group">
-	<span class="btn green fileinput-button">
-	<i class="icon-plus icon-white"></i>
-	<span>Add files...</span>
-	<input type="file" name="rar" multiple>
-	</span>
-	<input type="text" name="name" placeholder="文件名称" required>
-	</div>
 
-	<div class="control-group">
-	<label class="control-label visible-ie8 visible-ie9">author</label>
-		<div class="input-icon left">
-			<i class="icon-lock"></i>
-			<input class="m-wrap placeholder-no-fix" type="txt" placeholder="Author" name="author" required>
-	</div>
-	</div>
-
-	<div class="control-group">
-	<label class="control-label visible-ie8 visible-ie9">instruction</label>
-		<div class="input-icon left">
-			<i class="icon-lock"></i>
-			<input class="m-wrap placeholder-no-fix" type="txt" placeholder="Instruction" name="instruction" required>
-	</div>
-	</div>
-
-	<div class="control-group">
-	<label class="control-label visible-ie8 visible-ie9">Password</label>
-		<div class="input-icon left">
-			<i class="icon-lock"></i>
-			<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
-		</div>
-	</div>
+    <div>
+        <p>新闻图文：</p><script id="editor" name="image-text" type="text/plain" style="width:780px;height:500px;"><?php echo ($news['image-text']); ?></script><br />
+    </div>
 
     <button type="submit" class="btn blue start">
-	<i class="icon-upload icon-white"></i>
-	<span>Start upload</span>
-	</button>
-	</form>
+    <i class="icon-upload icon-white"></i>
+    <span>Start Upload</span>
+    </button>
+
+</form>
+
 
 			</div>
 			<!-- END PAGE -->
@@ -712,70 +647,61 @@
 
 	<!-- END CORE PLUGINS -->
 
-	<script src="/ydlm/Public/Admin/js/form-fileupload.js"></script>
-	<!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="/ydlm/Public/Admin/js/form-fileupload.js"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-	<script src="/ydlm/Public/Admin/js/jquery.fancybox.pack.js"></script>
+    <script src="/ydlm/Public/Admin/js/jquery.fancybox.pack.js"></script>
 
-	<!-- BEGIN:File Upload Plugin JS files-->
+    <!-- BEGIN:File Upload Plugin JS files-->
 
-	<script src="/ydlm/Public/Admin/js/jquery.ui.widget.js"></script>
+    <script src="/ydlm/Public/Admin/js/jquery.ui.widget.js"></script>
 
-	<!-- The Templates plugin is included to render the upload/download listings -->
+    <!-- The Templates plugin is included to render the upload/download listings -->
 
-	<script src="/ydlm/Public/Admin/js/tmpl.min.js"></script>
+    <script src="/ydlm/Public/Admin/js/tmpl.min.js"></script>
 
-	<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+    <!-- The Load Imcontent plugin is included for the preview imcontents and imcontent resizing functionality -->
 
-	<script src="/ydlm/Public/Admin/js/load-image.min.js"></script>
+    <script src="/ydlm/Public/Admin/js/load-imcontent.min.js"></script>
 
-	<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+    <!-- The Canvas to Blob plugin is included for imcontent resizing functionality -->
 
-	<script src="/ydlm/Public/Admin/js/canvas-to-blob.min.js"></script>
+    <script src="/ydlm/Public/Admin/js/canvas-to-blob.min.js"></script>
 
-	<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
 
-	<script src="/ydlm/Public/Admin/js/jquery.iframe-transport.js"></script>
+    <script src="/ydlm/Public/Admin/js/jquery.iframe-transport.js"></script>
 
-	<!-- The basic File Upload plugin -->
+    <!-- The basic File Upload plugin -->
 
-	<script src="/ydlm/Public/Admin/js/jquery.fileupload.js"></script>
+    <script src="/ydlm/Public/Admin/js/jquery.fileupload.js"></script>
 
-	<!-- The File Upload file processing plugin -->
+    <!-- The File Upload file processing plugin -->
 
-	<script src="/ydlm/Public/Admin/js/jquery.fileupload-fp.js"></script>
+    <script src="/ydlm/Public/Admin/js/jquery.fileupload-fp.js"></script>
 
-	<!-- The File Upload user interface plugin -->
+    <!-- The File Upload user interface plugin -->
 
-	<script src="/ydlm/Public/Admin/js/jquery.fileupload-ui.js"></script>
+    <script src="/ydlm/Public/Admin/js/jquery.fileupload-ui.js"></script>
 
-	<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+    <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
 
-	<!--[if gte IE 8]><script src="media/js/jquery.xdr-transport.js"></script><![endif]-->
+    <!--[if gte IE 8]><script src="media/js/jquery.xdr-transport.js"></script><![endif]-->
 
-	<!-- END:File Upload Plugin JS files-->
+    <!-- END:File Upload Plugin JS files-->
 
-	<!-- END PAGE LEVEL PLUGINS -->
+    <!-- END PAGE LEVEL PLUGINS -->
 
-	<script src="/ydlm/Public/Admin/js/app.js"></script>
 
-	<script src="/ydlm/Public/Admin/js/form-fileupload.js"></script>
+    <script>
+    $(function () {
+        //实例化编辑器
+        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+        var ue = UE.getEditor('editor');
+    });
+</script>
 
-	<script>
-
-		jQuery(document).ready(function() {
-
-		// initiate layout and plugins
-
-		App.init();
-
-		FormFileUpload.init();
-
-		});
-
-	</script>
-
-	<!-- END JAVASCRIPTS -->
+    <!-- END JAVASCRIPTS -->
 
 	<!-- END JAVASCRIPTS -->
 

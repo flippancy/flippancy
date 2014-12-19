@@ -579,14 +579,18 @@
 			<!-- BEGIN PAGE CONTAINER-->
 			<div>
 				
-    <table class="table table-striped">
-        <br />
         <p style="font-size:30px;text-align:center">修改人物介绍</p>
         <form name="form" method="POST" action="/ydlm/admin.php/Person/handle" enctype="multipart/form-data">
 
             <div>
-                <p>人物头像：</p><img src="<?php echo ($person['img_path']); ?>"/>
-            </div>
+                <p>人物头像：</p>
+                <img width="100" height="100" src="<?php echo ($person['img_path']); ?>"/><br>
+    			<span class="btn green fileinput-button">
+  				<i class="icon-plus icon-white"></i>
+    			<span>头像修改</span>
+    			<input type="file" name="tx" multiple>
+    			</span>
+            </div><br><br>
     <div>
         <p>姓名：</p><input type="text" name="name" value="<?php echo ($person['name']); ?>" placeholder="姓名"><br />
     </div>
@@ -612,7 +616,8 @@
     </div>
 
     <div>
-        <p>人物简介：</p><script id="editor" name="content" type="text/plain" style="width:900px;height:300px;"><?php echo ($person['content']); ?></script><br />
+       <p>人物简介：</p><textarea rows="5" cols="20" style="width:232px" name="content"  placeholder="<?php echo ($person['content']); ?>" maxlength="100"></textarea>
+<!--          <script id="editor" name="content" type="text/plain" style="width:900px;height:300px;"><?php echo ($person['content']); ?></script><br /> -->
     </div>
 
     <button type="submit" class="btn blue start">
@@ -713,22 +718,7 @@
         //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
         var ue = UE.getEditor('editor');
         var s = ue.getPlainTxt();
-        post('/ydlm/admin.php/Person/handle',s);
     });
-    function post(URL, PARAMS) {
-var temp = document.createElement("form");
-temp.action = URL;
-temp.method = "post";
-temp.style.display = "none";
-for (var x in PARAMS) {
-var opt = document.createElement("textarea");
-opt.name = x;
-opt.value = PARAMS[x];
-temp.appendChild(opt);
-}
-document.body.appendChild(temp);
-temp.submit();
-} 
     </script>
 
     <!-- END JAVASCRIPTS -->

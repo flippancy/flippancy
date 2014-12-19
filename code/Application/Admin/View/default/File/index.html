@@ -63,12 +63,14 @@
 	</table>
 
 	<form action="__URL__/upload" enctype="multipart/form-data" method="post">
-	<input type="text" name="name" placeholder="文件名称" required>
+	<div class="control-group">
 	<span class="btn green fileinput-button">
 	<i class="icon-plus icon-white"></i>
 	<span>Add files...</span>
 	<input type="file" name="rar" multiple>
-	</span><br>
+	</span>
+	<input type="text" name="name" placeholder="文件名称" required>
+	</div>
 
 	<div class="control-group">
 	<label class="control-label visible-ie8 visible-ie9">author</label>

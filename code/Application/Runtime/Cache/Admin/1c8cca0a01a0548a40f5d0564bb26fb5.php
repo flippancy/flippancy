@@ -584,6 +584,7 @@
         <br />
         <thead>
             <tr>
+                <th>头像</th>
                 <th>人物姓名</th>
                 <th>英文名</th>
                 <th>性别</th>
@@ -595,6 +596,7 @@
         </thead>
         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tbody class="file">
             <tr class="template-domeload dade in">
+                <td class="img_path"><img width="30" height="30" src="<?php echo ($vo["img_path"]); ?>"/></td>
                 <td class="name"><?php echo ($vo["name"]); ?></td>
                 <td class="english_name"><?php echo ($vo["english_name"]); ?></td>
                 <td class="sex"><?php echo ($vo["sex"]); ?></td>
@@ -608,7 +610,7 @@
             </tr>
         </tbody><?php endforeach; endif; else: echo "" ;endif; ?>
 
-    </table><br /><br />
+    </table><br />
 
     <form action="/ydlm/admin.php/Person/add" enctype="multipart/form-data" method="post">
     
@@ -616,9 +618,15 @@
     <i class="icon-plus icon-white"></i>
     <span>Add Person...</span>-->
 
+    <span class="btn green fileinput-button">
+    <i class="icon-plus icon-white"></i>
+    <span>头像上传</span>
+    <input type="file" name="tx" multiple>
+    </span>
+
     </span><br /></br />
     <div class="control-group">
-    <label class="control-label visible-ie8 visible-ie9">role</label>
+    <label class="control-label visible-ie8 visible-ie9">name</label>
         <div class="input-icon left">
             <i class="icon-lock"></i>
             <input class="m-wrap placeholder-no-fix" type="text" name="name" placeholder="人物姓名" required>
@@ -626,7 +634,7 @@
     </div>
 
     <div class="control-group">
-    <label class="control-label visible-ie8 visible-ie9">role</label>
+    <label class="control-label visible-ie8 visible-ie9">age</label>
         <div class="input-icon left">
             <i class="icon-lock"></i>
             <input class="m-wrap placeholder-no-fix" type="text" placeholder="年龄" name="age" required>
@@ -634,7 +642,7 @@
     </div>
 
     <div class="control-group">
-    <label class="control-label visible-ie8 visible-ie9">Password</label>
+    <label class="control-label visible-ie8 visible-ie9">sex</label>
         <div class="input-icon left">
             <i class="icon-lock"></i>
             <input class="m-wrap placeholder-no-fix" type="text" placeholder="性别" name="sex" required>

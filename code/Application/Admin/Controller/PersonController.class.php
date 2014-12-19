@@ -18,6 +18,14 @@ class PersonController extends CommonController {
             $person['sex']     = $_POST['sex'];
             $person['college'] = $_POST['college'];
 
+            $upload = new \Think\Upload();// 实例化上传类    
+            $upload->maxSize = 3145728 ;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
+            $upload->savePath  = './Person/'; // 设置附件上传目录 
+            $upload->saveName  = $person['name']; // 设置附件上传目录 
+            $info = $upload->upload();    // 上传文件 
+
+            $person['img_path'] = __ROOT__.'/Uploads/'.$info[tx]['savepath'].$info[tx]['savename'];
             if(false === ($person = $Person->create($person))){
                     $this->error("创建Person对象错误！",'index');
                 }
@@ -54,10 +62,25 @@ class PersonController extends CommonController {
     public function handle(){
         $Person = M('Person');
         $data = $_POST;
-        var_dump($data);
-        $map['name'] = $data['name'];
+
+            $upload = new \Think\Upload();// 实例化上传类    
+            $upload->maxSize = 3145728 ;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
+            $upload->savePath  = './Person/'; // 设置附件上传目录 
+            $upload->saveName  = $person['name']; // 设置附件上传目录 
+            $info = $upload->upload();    // 上传文件 
+            $data['img_path'] = __ROOT__.'/Uploads/'.$info[tx]['savepath'].$info[tx]['savename'];
+
+        //删除之前的图片
+        // $map['name'] = $data['name'];
+        // $fix = $Person->where($map)->select();
+        // var_dump($fix);
+        // if(!unlink($fix['img_path'])){
+        //     $this->error("图片删除失败");
+        // }
+
         $reslut = $Person->where($map)->save($data);
-        if($reslut === true){
+        if($reslut == true){
         	$this->success("修改成功",'index');
         }else{
         	$this->error("修改失败",'index');

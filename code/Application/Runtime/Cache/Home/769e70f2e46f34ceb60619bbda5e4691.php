@@ -190,7 +190,7 @@
 					</div>
 				</div>
 			</div>
-            <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+            <div class="copyrights">Collect from</div>
 			<div class="section showcase" id="showcase">
                 <div class="container">
 					<div class="arrow 03">
@@ -220,84 +220,93 @@
 					<div class="showcase-sub-container">
 						<div class="pic-frame rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_01.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_01.jpg" alt="image_01" /></a>													
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_01.jpg" title="<?php echo ($file['0']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_01.jpg" alt="image_01" /></a>													
 							</div>
-							<span>Nuovo estere doloremque perse</span>
-							<p>
-								Photography / Print / Marketing							
-							</p>
+							<span><?php echo ($file['0']['filename']); ?> / <?php echo ($file['0']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['0']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>
 						</div>
 						<div class="pic-frame rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_02.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_02.jpg" alt="image_02" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_02.jpg" title="<?php echo ($file['1']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_02.jpg" alt="image_02" /></a>							
 							</div>
-							<span>Webus estere doloremque lorem</span>
-							<p>
-								Website / Print							
-							</p>
+							<span><?php echo ($file['1']['filename']); ?> / <?php echo ($file['1']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['1']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>						
 						</div>
 						<div class="pic-frame nomargin rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_03.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_03.jpg" alt="image_03" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_03.jpg" title="<?php echo ($file['2']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_03.jpg" alt="image_03" /></a>							
 							</div>
-							<span>Sone estere doloremque nunc</span>
-							<p>
-								Marketing / Photography						
-							</p>
+							<span><?php echo ($file['2']['filename']); ?> / <?php echo ($file['2']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['2']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>					
 						</div>
 						<div class="pic-frame rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_04.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_04.jpg" alt="image_04" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_04.jpg" title="<?php echo ($file['3']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_04.jpg" alt="image_04" /></a>
 							</div>
-							<span>Agenti estere doloremque amet</span>
-							<p>
-								Print / Corporate ID							
-							</p>
+							<span><?php echo ($file['3']['filename']); ?> / <?php echo ($file['3']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['3']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>							
 						</div>
 						<div class="pic-frame rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_05.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_05.jpg" alt="image_05" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_05.jpg" title="<?php echo ($file['4']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_05.jpg" alt="image_05" /></a>
 							</div>
-							<span>Terre estere doloremque sei perse</span>
-							<p>
-								Website / Print / Marketing							
-							</p>
+							<span><?php echo ($file['4']['filename']); ?> / <?php echo ($file['4']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['4']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>							
 						</div>
 						<div class="pic-frame nomargin rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_06.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_06.jpg" alt="image_06" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_06.jpg" title="<?php echo ($file['5']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_06.jpg" alt="image_06" /></a>
 							</div>
-							<span>Nulla estere doloremque sense</span>
-							<p>
-								Marketing / Commercial
-							</p>
+							<span><?php echo ($file['5']['filename']); ?> / <?php echo ($file['5']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['5']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>
 						</div>
 						<div class="pic-frame rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_07.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_07.jpg" alt="image_07" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_07.jpg" title="<?php echo ($file['6']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_07.jpg" alt="image_07" /></a>
 							</div>
-							<span>Setta estere doloremque noi</span>
-							<p>
-								App / Mobile
-							</p>
+							<span><?php echo ($file['6']['filename']); ?> / <?php echo ($file['6']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['6']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>
 						</div>
 						<div class="pic-frame rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_08.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_08.jpg" alt="image_08" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_08.jpg" title="<?php echo ($file['7']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_08.jpg" alt="image_08" /></a>	
 							</div>
-							<span>Lorem estere doloremque sei</span>
-							<p>
-								Print / Marketing							
-							</p>
+							<span><?php echo ($file['7']['filename']); ?> / <?php echo ($file['7']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['7']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>					
 						</div>
 						<div class="pic-frame nomargin rounded">
 							<div class="pic">
-								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_09.jpg" title="Lorem Ipsum"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_09.jpg" alt="image_09" /></a>							
+								<a href="/ydlm/Public/Home/images/portfolio/originals/portfolio_large_09.jpg" title="<?php echo ($file['8']['instruction']); ?>"><span class="roll"></span><img src="/ydlm/Public/Home/images/portfolio/thumbs/portfolio_small_09.jpg" alt="image_09" /></a>
 							</div>
-							<span>Donec estere doloremque lorem</span>
-							<p>
-								Art / Print / Marketing							
-							</p>
+							<span><?php echo ($file['8']['filename']); ?> / <?php echo ($file['8']['author']); ?></span>
+							<form action="/ydlm/index.php/Index/download?filename=<?php echo ($file['8']['filename']); ?>" method="post">
+								<input type="password" placeholder="FilePassword" name="password" required>
+								<input type="submit" value="提交"></input>
+							</form>							
 						</div>
 					</div>	
 				</div>       
@@ -310,18 +319,18 @@
 					<div class="subheader">
 						<div class="subheader-icon"></div>
 						<div class="subheader-text">
-							Kronos team <span>Meet Our Awesome Team.</span>
+							Our team <span>Meet Our Awesome Team.</span>
 						</div>
 						<div class="subheader-separator"></div>
 					</div> 
 					<div class="column-640 m-top-50">
 						<div class="summary">
-							Per se neque porro quisquam est, quister set dolorem per sei donec nulla est seper donec est lorem ipsum...						
+							纪录每位成员的信息，分享每位成员的学习经验和想法。分享每一位的劳动结晶。
 						</div>
 					</div>
 					<div class="column-300 m-left-40 m-top-50">
 						<p>
-							Terre estere doloremique sei laudantium, totames remeseo aperiam, eaque ipsa quae ab illo inventore veritatis rete et quasi architecto beataes vitae dicta sunt...
+							分享移动联盟的没个成员的学习成果，鼓励大家去学习和超越，做的更加好。
 						</p>
 					</div>
 					<div class="clear"></div>
