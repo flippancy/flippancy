@@ -57,7 +57,7 @@ class NewsController extends CommonController {
     public function handle(){
         $News = M('News');
         $news = $_POST;
-
+        var_dump($news['image-text']);
         p($news);die;
     }
 

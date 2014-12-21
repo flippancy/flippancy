@@ -20,7 +20,7 @@ class FileController extends CommonController {
    		$upload = new \Think\Upload();// 实例化上传类    
    		$upload->maxSize = 0 ;// 设置附件上传大小
    		$upload->exts = array('rar', 'zip');// 设置附件上传类型    
-   		$upload->savePath = $author.'/'; // 设置附件上传目录\
+   		$upload->savePath = 'File/'; // 设置附件上传目录\
    		$upload->saveName = $name; // 设置附件上传目录    
    		$info = $upload->upload();    // 上传文件   
    		if(!$info) {// 上传错误提示错误信息        
@@ -34,7 +34,7 @@ class FileController extends CommonController {
 	    	$data['path'] = $file['savepath'];
 	    	$data['pass'] = md5(I('post.password'));
 	    	$data['time'] = date('Y-m-d H:i:s');
-	    	$data['author'] = I('post.author');
+	    	$data['author'] = $author;
 	    	$data['instruction'] = I('post.instruction');
 	    	$flag = $File->addfile($data);
     		if($flag==1){
@@ -53,11 +53,11 @@ class FileController extends CommonController {
    		$filename = $_GET['filename'];
    		$password = md5(I('post.password'));
    		$map['filename'] = $filename;
-   		$filepath = M('File')->where($map)->field('pass,path,author')->select();
+   		$filepath = M('File')->where($map)->field('pass,path')->select();
    		if($filepath['0']['pass'] == $password){
-   			$path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filepath['0']['author'].'.zip';
+   			$path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filename.'.zip';
         if(!file_exists($path)){
-          $path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filepath['0']['author'].'.rar';
+          $path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filename.'.rar';
         }
    			redirect($path);
    		}else{
@@ -67,13 +67,18 @@ class FileController extends CommonController {
    	public function delete(){
    		$filename = $_GET['filename'];
    		$map['filename'] = $filename;
-   		$filepath = M('File')->where($map)->field('path,author')->select();
+   		$filepath = M('File')->where($map)->field('path')->select();
    		$name1 = './Uploads/'.$filepath['0']['path'].$filename.'.zip';
-      $name2 = './Uploads/'.$filepath['0']['path'].$filename.'.rar';
+      	$name2 = './Uploads/'.$filepath['0']['path'].$filename.'.rar';
+		$name1 = iconv("utf-8","gb2312",$name1);
+      	$name2 = iconv("utf-8","gb2312",$name2);
+      	// var_dump($name1);
+      	// var_dump($name2);
+      	// if (unlink($name1) || unlink($name2))
+      	// 	{echo "yes";}else{echo "no";}
    		if(M('File')->delete($filename)){
    			if(unlink($name1) || unlink($name2)){
             	deldir('./Uploads/'.$filepath['0']['path']);
-            	deldir('./Uploads/'.$filepath['0']['author']);
             	$this->success('删除成功');
             }
             else $this->error('删除失败1');

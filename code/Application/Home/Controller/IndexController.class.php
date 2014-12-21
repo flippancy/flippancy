@@ -28,11 +28,11 @@ class IndexController extends Controller {
         $filename = $_GET['filename'];
         $password = md5(I('post.password'));
         $map['filename'] = $filename;
-        $filepath = M('File')->where($map)->field('pass,path,author')->select();
+        $filepath = M('File')->where($map)->field('pass,path')->select();
         if($filepath['0']['pass'] == $password){
-            $path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filepath['0']['author'].'.zip';
+            $path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filename.'.zip';
         if(!file_exists($path)){
-          $path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filepath['0']['author'].'.rar';
+          $path = __ROOT__.'/Uploads/'.$filepath['0']['path'].$filename.'.rar';
         }
             redirect($path);
         }else{

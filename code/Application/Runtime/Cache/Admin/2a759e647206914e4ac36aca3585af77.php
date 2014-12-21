@@ -606,18 +606,7 @@
 				<td class="author"><?php echo ($vo["author"]); ?></td>
 				<td class="instruction"><?php echo ($vo["instruction"]); ?></td>
 				<td class="delete">
-<!-- 					<form  action="/ydlm/admin.php/File/download?filename=<?php echo ($vo["filename"]); ?>" method="post">
-							<label class="control-label visible-ie8 visible-ie9">Password</label>
-							<div class="input-icon left">
-								<i class="icon-lock"></i>
-								<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
-							</div>
-					<input type="submit" value="download"  class="btn yellow cancel" >
-
-					<a class="btn red delete" onclick="location.href='/ydlm/admin.php/File/delete?filename=<?php echo ($vo["filename"]); ?>'">Delete</a>
-					<a class="btn red delete" onclick="location.href=''">update</a>
-					</form> -->
-					<form  action="/ydlm/admin.php/File/select?filename=<?php echo ($vo["filename"]); ?>" method="post">
+					<form  action="/ydlm/admin.php/File/download?filename=<?php echo ($vo["filename"]); ?>" method="post">
 							<label class="control-label visible-ie8 visible-ie9">Password</label>
 							<div class="input-icon left">
 								<i class="icon-lock"></i>
@@ -628,10 +617,20 @@
 					<a class="btn red delete" onclick="location.href='/ydlm/admin.php/File/delete?filename=<?php echo ($vo["filename"]); ?>'">Delete</a>
 					<a class="btn red delete" onclick="location.href=''">update</a>
 					</form>
+<!-- 					<form  action="/ydlm/admin.php/File/select?filename=<?php echo ($vo["filename"]); ?>" method="post">
+							<label class="control-label visible-ie8 visible-ie9">Password</label>
+							<div class="input-icon left">
+								<i class="icon-lock"></i>
+								<input class="m-wrap placeholder-no-fix" type="password" placeholder="Password" name="password" required>
+							</div>
+					<input type="submit" value="download"  class="btn yellow cancel" >
+
+					<a class="btn red delete" onclick="location.href='/ydlm/admin.php/File/delete?filename=<?php echo ($vo["filename"]); ?>'">Delete</a>
+					<a class="btn red delete" onclick="location.href=''">update</a>
+					</form> -->
 				</td>
 			</tr>
 		</tbody><?php endforeach; endif; else: echo "" ;endif; ?>
-
 	</table>
 
 	<form action="/ydlm/admin.php/File/upload" enctype="multipart/form-data" method="post">
@@ -674,6 +673,10 @@
 	</button>
 	</form>
 
+<!-- 文件上传进度 -->
+
+
+
 			</div>
 			<!-- END PAGE -->
 		</div>
@@ -712,8 +715,6 @@
 
 	<!-- END CORE PLUGINS -->
 
-	<script src="/ydlm/Public/Admin/js/form-fileupload.js"></script>
-	<!-- BEGIN PAGE LEVEL PLUGINS -->
 
 	<script src="/ydlm/Public/Admin/js/jquery.fancybox.pack.js"></script>
 

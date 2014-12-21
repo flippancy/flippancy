@@ -510,7 +510,7 @@
 							<p class="m-bottom-22">输入您的信息提交，我们会派出专人来联系你的...</p>
 						</div>
 						<div class="clear"></div>    
-						<form id="contact-form" method="post" action="#" enctype="application/x-www-form-urlencoded">
+						<form id="contact-form" method="post" action="<?php echo U('Mail/send');?>" enctype="application/x-www-form-urlencoded">
 							<label for="name">Name *</label>
 							<input type="text" id="name" name="contact[name]" class="rounded" />
 							<label for="name">E-mail *</label>
@@ -519,7 +519,8 @@
 							<input type="text" id="subject" name="contact[subject]" class="rounded" />
 							<label for="name">Message *</label>
 							<textarea id="message" name="contact[message]" cols="42" rows="7" class="rounded"></textarea>
-						</form>
+						<button type="submit" id="submit-mail" class="submit-btn rounded" /> SEND </button>
+					</form>
 						<input type="button" id="submit-mail" class="submit-btn rounded" value="SEND" /> 
 						<div id="mail-message">
 							<table>

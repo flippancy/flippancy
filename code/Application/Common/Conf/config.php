@@ -14,6 +14,16 @@ return array(
 
     'DEFAULT_THEME'    =>    'default',  // 模板主题
 
+        // 配置邮件发送服务器
+   'MAIL_HOST' =>'smtp.exmail.qq.com',
+   'MAIL_SMTPAUTH' =>TRUE, //启用smtp认证
+   'MAIL_USERNAME' =>'767110505@qq.com',
+   'MAIL_FROM' =>'767110505@qq.com',
+   'MAIL_FROMNAME' =>'HackerZ',
+   'MAIL_PASSWORD' =>'zhbit123',
+   'MAIL_CHARSET' =>'utf-8',
+   'MAIL_ISHTML' =>TRUE, // 是否HTML格式邮件
+
     'TMPL_PARSE_STRING' =>array(
 		'__PUBLIC__'  => __ROOT__.'/Public',
 		'__HJS__'     => __ROOT__.'/Public/Home/js',
